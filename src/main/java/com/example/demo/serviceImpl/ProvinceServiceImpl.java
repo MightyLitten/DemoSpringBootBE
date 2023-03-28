@@ -2,7 +2,6 @@ package com.example.demo.serviceImpl;
 
 import com.example.demo.dto.ProvinceDTO;
 import com.example.demo.dto.transformer.ProvinceTransformer;
-import com.example.demo.entity.Province;
 import com.example.demo.repository.ProvinceRepository;
 import com.example.demo.service.ProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,6 @@
 package com.example.demo.dto.transformer;
 
 import com.example.demo.dto.ProvinceDTO;
-import com.example.demo.dto.ProvinceDTO;
-import com.example.demo.entity.Province;
 import com.example.demo.entity.Province;
 
 import java.util.ArrayList;

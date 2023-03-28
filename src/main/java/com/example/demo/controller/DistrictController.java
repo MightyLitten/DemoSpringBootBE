@@ -1,8 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.DistrictDTO;
-import com.example.demo.dto.ProvinceDTO;
-import com.example.demo.entity.District;
 import com.example.demo.service.DistrictService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

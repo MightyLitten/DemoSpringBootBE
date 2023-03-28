@@ -2,7 +2,6 @@ package com.example.demo.serviceImpl;
 
 import com.example.demo.dto.WardDTO;
 import com.example.demo.dto.transformer.WardTransformer;
-import com.example.demo.entity.Ward;
 import com.example.demo.repository.WardRepository;
 import com.example.demo.service.WardService;
 import org.springframework.beans.factory.annotation.Autowired;

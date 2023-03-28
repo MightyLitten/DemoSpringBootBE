@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.DistrictDTO;
-import com.example.demo.entity.District;
 
 import java.util.List;
 

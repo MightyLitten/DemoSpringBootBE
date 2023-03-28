@@ -1,10 +1,6 @@
 package com.example.demo.dto.transformer;
 
-import com.example.demo.dto.DistrictDTO;
 import com.example.demo.dto.WardDTO;
-import com.example.demo.dto.WardDTO;
-import com.example.demo.entity.District;
-import com.example.demo.entity.Ward;
 import com.example.demo.entity.Ward;
 
 import java.util.ArrayList;

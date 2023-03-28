@@ -5,7 +5,6 @@ import com.example.demo.entity.District;
 import com.example.demo.entity.Province;
 import com.example.demo.entity.User;
 import com.example.demo.entity.Ward;
-import org.springframework.data.domain.Page;
 
 import java.util.ArrayList;
 import java.util.List;

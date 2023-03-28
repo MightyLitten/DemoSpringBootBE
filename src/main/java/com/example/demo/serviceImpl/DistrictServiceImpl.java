@@ -2,7 +2,6 @@ package com.example.demo.serviceImpl;
 
 import com.example.demo.dto.DistrictDTO;
 import com.example.demo.dto.transformer.DistrictTransformer;
-import com.example.demo.entity.District;
 import com.example.demo.repository.DistrictRepository;
 import com.example.demo.service.DistrictService;
 import org.springframework.beans.factory.annotation.Autowired;

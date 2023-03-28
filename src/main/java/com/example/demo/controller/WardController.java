@@ -1,8 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.dto.DistrictDTO;
 import com.example.demo.dto.WardDTO;
-import com.example.demo.entity.Ward;
 import com.example.demo.service.WardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
