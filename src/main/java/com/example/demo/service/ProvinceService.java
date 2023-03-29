@@ -8,4 +8,8 @@ public interface ProvinceService {
     public void save (ProvinceDTO provinceDTO);
 
     public void saveAll (List<ProvinceDTO> provinceDTOs);
+
+    public List<ProvinceDTO> findAll(Integer depth);
+
+    public ProvinceDTO findByCode(int id, Integer depth);
 }

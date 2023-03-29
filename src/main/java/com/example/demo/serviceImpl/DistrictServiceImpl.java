@@ -15,16 +15,30 @@ import java.util.List;
 public class DistrictServiceImpl implements DistrictService {
     @Autowired
     private DistrictRepository repo;
+    private DistrictTransformer transformer = new DistrictTransformer();
 
     @Override
     public void save(DistrictDTO districtDTO) {
-        DistrictTransformer transformer = new DistrictTransformer();
         repo.save(transformer.toEntity(districtDTO));
     }
 
     @Override
     public void saveAll(List<DistrictDTO> districtDTOs) {
-        DistrictTransformer transformer = new DistrictTransformer();
         repo.saveAll(transformer.toListEntities(districtDTOs));
+    }
+
+    @Override
+    public List<DistrictDTO> findAll(Integer depth) {
+        return transformer.toListDTO(repo.findAll(),depth);
+    }
+
+    @Override
+    public DistrictDTO findById(int id, Integer depth) {
+        return transformer.toDTO(repo.findById(id).get(),depth);
+    }
+
+    @Override
+    public List<DistrictDTO> findListByProvinceId(int pcode) {
+        return transformer.toListDTO(repo.findByPcode(pcode),0);
     }
 }

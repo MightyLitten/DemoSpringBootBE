@@ -26,12 +26,7 @@ public class WardTransformer {
         }
         List<WardDTO> WardDTOList = new ArrayList<>();
         for (Ward entity:entities) {
-            WardDTO districtDTO = new WardDTO();
-            districtDTO.setCode(entity.getWcode());
-            districtDTO.setName(entity.getWname());
-            districtDTO.setDivision_type(entity.getDivision_type());
-            districtDTO.setCodename(entity.getCodename());
-            districtDTO.setDistrict_code(entity.getDcode());
+            WardDTO districtDTO = toDTO(entity);
             WardDTOList.add(districtDTO);
         }
 
@@ -44,12 +39,7 @@ public class WardTransformer {
         }
         List<Ward> entities = new ArrayList<>();
         for (WardDTO wardDTO:wardDTOs) {
-            Ward ward = new Ward();
-            ward.setWname(wardDTO.getName());
-            ward.setWcode(wardDTO.getCode());
-            ward.setDivision_type(wardDTO.getDivision_type());
-            ward.setCodename(wardDTO.getCodename());
-            ward.setDcode(wardDTO.getDistrict_code());
+            Ward ward = toEntity(wardDTO);
             entities.add(ward);
         }
 

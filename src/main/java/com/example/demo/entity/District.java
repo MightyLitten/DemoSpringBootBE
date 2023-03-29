@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "district")
@@ -16,6 +17,9 @@ public class District {
     private String codename;
     @Column(name = "pcode")
     private int pcode;
+    @OneToMany
+    @JoinColumn(name = "dcode",referencedColumnName = "dcode")
+    private List<Ward> wards;
 
     public District() {
     }
@@ -58,5 +62,13 @@ public class District {
 
     public void setPcode(int phone_code) {
         this.pcode = phone_code;
+    }
+
+    public List<Ward> getWards() {
+        return wards;
+    }
+
+    public void setWards(List<Ward> wards) {
+        this.wards = wards;
     }
 }

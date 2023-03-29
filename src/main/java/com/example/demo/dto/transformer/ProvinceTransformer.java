@@ -8,8 +8,9 @@ import java.util.List;
 import java.util.Objects;
 
 public class ProvinceTransformer {
+    private static DistrictTransformer transformer = new DistrictTransformer();
 
-    public static ProvinceDTO toDTO(Province entity){
+    public static ProvinceDTO toDTO(Province entity,Integer depth){
         if(Objects.isNull(entity)){
             return null;
         }
@@ -19,22 +20,19 @@ public class ProvinceTransformer {
         provinceDTO.setDivision_type(entity.getDivision_type());
         provinceDTO.setCodename(entity.getCodename());
         provinceDTO.setPhone_code(entity.getPhone_code());
+        if(depth==null||depth!=2)provinceDTO.setDistricts(new ArrayList<>());
+        else provinceDTO.setDistricts(transformer.toListDTO(entity.getDistricts(),0));
         return provinceDTO;
     }
 
-    public static List<ProvinceDTO> toListDTO(List<Province> entities){
+    public static List<ProvinceDTO> toListDTO(List<Province> entities, Integer depth){
         if(Objects.isNull(entities)){
             return null;
         }
         List<ProvinceDTO> ProvinceDTOList = new ArrayList<>();
         for (Province entity:entities) {
-            ProvinceDTO districtDTO = new ProvinceDTO();
-            districtDTO.setCode(entity.getPcode());
-            districtDTO.setName(entity.getPname());
-            districtDTO.setDivision_type(entity.getDivision_type());
-            districtDTO.setCodename(entity.getCodename());
-            districtDTO.setPhone_code(entity.getPcode());
-            ProvinceDTOList.add(districtDTO);
+            ProvinceDTO provinceDTO = toDTO(entity,depth);
+            ProvinceDTOList.add(provinceDTO);
         }
 
         return ProvinceDTOList;
@@ -46,12 +44,7 @@ public class ProvinceTransformer {
         }
         List<Province> entities = new ArrayList<>();
         for (ProvinceDTO provinceDTO:provinceDTOs) {
-            Province province = new Province();
-            province.setPname(provinceDTO.getName());
-            province.setPcode(provinceDTO.getCode());
-            province.setDivision_type(provinceDTO.getDivision_type());
-            province.setCodename(provinceDTO.getCodename());
-            province.setPhone_code(provinceDTO.getPhone_code());
+            Province province = toEntity(provinceDTO);
             entities.add(province);
         }
 

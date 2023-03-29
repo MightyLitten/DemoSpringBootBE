@@ -15,7 +15,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository repo;
-    UserTransformer transformer = new UserTransformer();
+    private UserTransformer transformer = new UserTransformer();
 
     @Override
     public void save(UserDTO userDTO) {

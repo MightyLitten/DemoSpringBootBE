@@ -16,15 +16,25 @@ public class ProvinceServiceImpl implements ProvinceService {
 
     @Autowired
     private ProvinceRepository repo;
+    private ProvinceTransformer transformer = new ProvinceTransformer();
+
     @Override
     public void save(ProvinceDTO provinceDTO) {
-        ProvinceTransformer transformer = new ProvinceTransformer();
         repo.save(transformer.toEntity(provinceDTO));
     }
 
     @Override
     public void saveAll(List<ProvinceDTO> provinceDTOs) {
-        ProvinceTransformer transformer = new ProvinceTransformer();
         repo.saveAll(transformer.toListEntities(provinceDTOs));
+    }
+
+    @Override
+    public List<ProvinceDTO> findAll(Integer depth) {
+        return transformer.toListDTO(repo.findAll(),depth);
+    }
+
+    @Override
+    public ProvinceDTO findByCode(int code, Integer depth) {
+        return transformer.toDTO(repo.findById(code).get(),depth);
     }
 }

@@ -15,16 +15,30 @@ import java.util.List;
 public class WardServiceImpl implements WardService {
     @Autowired
     private WardRepository repo;
+    private WardTransformer transformer = new WardTransformer();
 
     @Override
     public void save(WardDTO wardDTO) {
-        WardTransformer transformer = new WardTransformer();
         repo.save(transformer.toEntity(wardDTO));
     }
 
     @Override
     public void saveAll(List<WardDTO> wardDTOs) {
-        WardTransformer transformer = new WardTransformer();
         repo.saveAll(transformer.toListEntities(wardDTOs));
+    }
+
+    @Override
+    public List<WardDTO> findAll() {
+        return transformer.toListDTO(repo.findAll());
+    }
+
+    @Override
+    public List<WardDTO> findListByDcode(int dcode) {
+        return transformer.toListDTO(repo.findByDcode(dcode));
+    }
+
+    @Override
+    public WardDTO findById(int id) {
+        return transformer.toDTO(repo.findById(id).get());
     }
 }
